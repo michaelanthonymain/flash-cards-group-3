@@ -21,41 +21,30 @@ end
 
 #form from main page posts to /login.
 post '/login' do
-  puts "this is the session guy: #{session.inspect}"
   if User.authenticate(params[:name], params[:password]) #authenticate is a User method that matches user input to database records
     session[:name] = params[:name]
     session[:password] = params[:password]
-    puts "Session set as #{session.inspect}"
     redirect '/'
   else
     erb :login
   end
 end
 
-#creates a new user.
-get '/register' do
-  erb :register #this is just a form that creates a new user
-end
+# #creates a new user.
+# get '/register' do
+#   erb :register #this is just a form that creates a new user
+# end
 
-#Form from line 50 posts here, creates a new User object
-post '/register' do
-  User.create()
-  # erb :index
-end
+# #Form from line 50 posts here, creates a new User object
+# post '/register' do
+#   User.create()
+#   # erb :index
+# end
 
 
 
-#just logs the user out, and clears the session. redirects to root.
-get '/logout' do
-  session.clear
-  redirect '/'
-end
-
-# this relates to line 66 ... the actual GET call
-# get '/secret' do
-#   if session[:email] == nil
-#     redirect '/'
-#   else
-#     erb :secret_page
-#   end
+# #just logs the user out, and clears the session. redirects to root.
+# get '/logout' do
+#   session.clear
+#   redirect '/'
 # end
