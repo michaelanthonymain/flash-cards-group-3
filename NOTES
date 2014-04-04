@@ -1,0 +1,17 @@
+USER has many DECKS
+DECK belongs to USER
+ROUND belongs to DECK
+DECK has many ROUNDS
+USER has many ROUNDS
+ROUND belongs to USER
+ROUNDS has many GUESSES
+GUESS belongs to a ROUND
+CARD has many GUESSES
+GUESS belongs to CARD
+DECK has many CARDS
+CARD belongs to DECK
+
+
+ 
+
+
