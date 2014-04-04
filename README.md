@@ -1,13 +1,13 @@
-# Web Flash Cards 1 Multiple Decks 
- 
-##Learning Competencies 
+# Web Flash Cards 1 Multiple Decks
+
+##Learning Competencies
 
 - Manage application complexity via proper modeling.
 - Use project management fundamentals, including division of labor.
 - Use product management fundamentals in the face of incomplete specifications.
 - Further practice with ActiveRecord, Sinatra, and ERB.
 
-##Summary 
+##Summary
 
 We're going to create a web-based flash card application, starting with one that has a single deck.  Eventually we'll add support for user-generated decks and improve the interface via AJAX.
 
@@ -56,7 +56,7 @@ When a user is done they should be redirected to a page that shows a list of all
 ###Release 3 : Testing
 If you haven't been writing tests as you go, or even better using TDD, then now is the time to add them.  You should have ample test coverage of your model and controller.  If you want you can explore testing of your views as well.
 
-##Optimize Your Learning 
+##Optimize Your Learning
 This project is as much about project management and team dynamics as it is about the code.  What skills / lessons did you learn from working with a team?  How will you work better next time?
 
 ##Resources
