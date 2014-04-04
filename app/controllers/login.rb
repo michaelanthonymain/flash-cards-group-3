@@ -11,7 +11,8 @@ enable :sessions
 
 #loading basic root stuff, y'all know this
 get '/' do
-  # Look in app/views/index.erb
+  @name = params[:session][:name]
+
   erb :index
 end
 
@@ -44,7 +45,7 @@ end
 
 
 # #just logs the user out, and clears the session. redirects to root.
-# get '/logout' do
-#   session.clear
-#   redirect '/'
-# end
+get '/logout' do
+  session.clear
+  erb :logout
+end
