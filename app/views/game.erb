@@ -1,0 +1,15 @@
+<%(new_deck = initialize_deck_instance(1))%>
+<%(new_deck.get_cards)%>
+
+
+<div class="container">
+  <h1>Pithy flashcard themed header...</h1>
+  	<% @current_card = new_deck.pick_card %>
+  	<%= @current_card.question %> 
+  	<form action = "/next"  method ="get">
+  		<br>
+  		<input type = "text" name = "user_input">
+  		<input type = "submit" value = "Submit">
+  	</form>
+</div>
+
