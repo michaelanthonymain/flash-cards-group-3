@@ -20,7 +20,10 @@ post '/login' do
   if User.authenticate(params[:name], params[:password]) #authenticate is a User method that matches user input to database records
     session[:name] = params[:name]
     session[:password] = params[:password]
-    redirect '/'
+    puts "!!!!!"
+    p session.inspect
+    puts "!!!!!"
+    redirect '/usr'
   else
     erb :login
   end
