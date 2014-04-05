@@ -1,10 +1,5 @@
 enable :sessions
 
-# GET  /logout   // destroys session and redirects to /
-# GET  /login    // gets the webpage that has the login form
-# POST /login    // authenticates credentials against database and either redirects home with a new session or redirects back to /login
-# GET  /register // gets the webpage that has the registration form
-# POST /register // records the entered information into database as a new /user/xxx
 # GET  /user/:id // gets and renders current user data in a profile view
 # POST /user/:id // updates new information about user
 
@@ -31,18 +26,19 @@ post '/login' do
   end
 end
 
-# #creates a new user.
-# get '/register' do
-#   erb :register #this is just a form that creates a new user
-# end
+get '/register' do
+  erb :register
+end
 
-# #Form from line 50 posts here, creates a new User object
-# post '/register' do
-#   User.create()
-#   # erb :index
-# end
-
-
+post '/register' do
+  p params
+  @new_user = User.new(name: params[:name], password: params[:password])
+  if @new_user.save
+    redirect '/' #this should probably lead to the users page that Ron is writing.
+  else
+    erb :register
+  end
+end
 
 # #just logs the user out, and clears the session. redirects to root.
 get '/logout' do
