@@ -1,5 +1,5 @@
 .container {
-  margin: 20px auto;
+  margin: 128px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
@@ -7,3 +7,64 @@
 th {
   text-align: left;
 }
+
+.body {
+    margin: 0;
+    font-family: Arial;
+}
+
+.top-nav {
+    position: fixed;
+    background: black;
+    color: white;
+    width: 100%;
+    top: 0;
+    height: 64px;
+}
+
+.top-nav h1 {
+    font-size: 32px;
+    float: left;
+    margin: 0;
+    line-height: 2em;
+}
+
+ul.nav a {
+    color: white;
+    text-decoration: none;
+}
+
+ul.nav {
+    list-style: none;
+    float: right;
+}
+
+ul.nav li {
+    display: inline;
+    padding-right: 20px;
+    line-height: 2.5em;
+}
+
+.content {
+    margin-top: 70px;
+}
+
+
+/*p {
+    font-family: Georgia, serif;
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 8px;
+}
+*/
+/*h1, h2, h3 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}*/
+
+
+/*h2 {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 48px;
+}*/
