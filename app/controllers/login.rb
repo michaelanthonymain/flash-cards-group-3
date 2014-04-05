@@ -9,6 +9,7 @@ get '/login' do
 end
 
 post '/login' do
+  # login_information = params[:name]
   if User.authenticate(params[:name], params[:password])
     session[:name] = params[:name]
     session[:password] = params[:password]
