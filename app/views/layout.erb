@@ -21,9 +21,9 @@
   <div class="top-nav">
     <h1>DRAGONSFUCKINGCARDS!!!</h1>
     <ul class="nav">
-      <% if @current_user %>
-        <li><a href="#">Play</a></li>
-        <li><a href="#">Create</a></li>
+      <% if session[:user] %>
+        <li><a href="/usr">Play</a></li>
+        <li><a href="/usr/new_deck">Create</a></li>
         <li><a href="/logout">Logout</a></li>
       <% else %>
         <li><a href="/register">Register</a></li>

@@ -10,8 +10,12 @@ end
 
 post '/login' do
   if User.authenticate(params[:name], params[:password])
-    session[:name] = params[:name]
-    session[:password] = params[:password]
+    # session[:name] = params[:name]
+    # session[:password] = params[:password]
+    puts "!!!!!!user created in session"
+    p current_user
+    session[:user] = current_user
+    p session
     redirect '/usr'
   else
     erb :login
@@ -26,7 +30,8 @@ post '/register' do
   p params
   @new_user = User.new(name: params[:name], password: params[:password])
   if @new_user.save
-    redirect '/' #this should probably lead to the users page that Ron is writing.
+    session[:user] = current_user
+    redirect '/usr' #this should probably lead to the users page that Ron is writing.
   else
     erb :register
   end
