@@ -1,6 +1,6 @@
 <div class="container">
-  <% if @current_user %>
-  <p>Hello, <%= @current_user.name %>!</p>
+  <% if session[:user] %>
+  <p>Hello, <%= session[:user].name %>!</p>
   <p> Ready to get your LEARN on?</p>
   <% else %>
   <p> Hey there, stranger ;) </p>
