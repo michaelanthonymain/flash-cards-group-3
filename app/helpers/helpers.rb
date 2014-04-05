@@ -1,3 +1,4 @@
+
 def current_user
   # p session
   if params[:name]
@@ -6,6 +7,9 @@ def current_user
   end
 end
 
-# def logged_in?
-# current_user?
-# end
+
+def initialize_deck_instance(deck_id)
+	return Deck.find(deck_id)
+end
+
+
