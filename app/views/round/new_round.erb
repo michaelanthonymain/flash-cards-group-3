@@ -1,6 +1,10 @@
 <div class="container">
   <h3> new round bro </h3>
   <h4>Deck: <%=@deck.name%></h4>
-  <a href="#">begin</a>
-  <a href="/usr">exit</a>
-</div
+  <form method="get" action="/usr/round/<%=@deck.id%>">
+    <input type="submit" value="play">
+  </form>
+  <form method="get" action="/usr">
+    <input type="submit" value="back">
+  <form>
+</div>
