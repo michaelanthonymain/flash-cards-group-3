@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Hello <%= @current_user.name %>, glad to have you back!</h2>
+
+  <form method='post' action='/usr/round'>
+    <select name='deck'\>
+      <% @current_user.decks.each do |deck| %>
+      <option value="<%=deck.id%>"><%=deck.name%></option>
+      <% end %>
+    </select>
+    <input type="submit" value="new round">
+  </form>
+</div>

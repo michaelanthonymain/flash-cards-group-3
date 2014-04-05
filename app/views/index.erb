@@ -1,8 +1,8 @@
 <div class="container">
   <h1>Welcome to DRAGONSFUCKINGCARDS!!!!</h1>
 
-  <% if @name %>
-  <p>Hello, <%= @name %>!</p>
+  <% if @current_user %>
+  <p>Hello, <%= @current_user.name %>!</p>
   <% else %>
   <p> Hey there, stranger ;) </p>
   <% end %>
@@ -10,7 +10,8 @@
   <p>New here? <br>
     Name yourself something rad: <a href="/register">Register</a></p>
 
-
+  <a href="/login">Login</a>
   <a href="/logout">Logout</a>
 
 </div>
+
