@@ -4,22 +4,13 @@ enable :sessions
 # POST /user/:id // updates new information about user
 
 
-#loading basic root stuff, y'all know this
-get '/' do
-  @name = params[:session][:name]
-
-  erb :index
-end
-
 get '/login' do
   erb :login
 end
 
-#form from main page posts to /login.
 post '/login' do
-  if User.authenticate(params[:name], params[:password]) #authenticate is a User method that matches user input to database records
+  if User.authenticate(params[:name], params[:password])
     session[:name] = params[:name]
-    session[:password] = params[:password]
     redirect '/'
   else
     erb :login
@@ -40,7 +31,6 @@ post '/register' do
   end
 end
 
-# #just logs the user out, and clears the session. redirects to root.
 get '/logout' do
   session.clear
   erb :logout
