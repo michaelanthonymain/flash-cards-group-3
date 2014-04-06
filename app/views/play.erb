@@ -3,7 +3,9 @@
   <form method='post' action='/usr/round'>
     <select name='deck_id'\>
       <% @user.decks.each do |deck| %>
-      <option value="<%=deck.id%>"><%=deck.name%></option>
+        <% unless deck.cards.empty? %>
+          <option value="<%=deck.id%>"><%=deck.name%></option> 
+        <% end %>
       <% end %>
     </select>
     <input type="submit" value="play">
