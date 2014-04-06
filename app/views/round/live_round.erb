@@ -1,3 +1,14 @@
+
 <div class="container">
   <h2><%=@user.name%> is playing <%=@deck.name%></h2>
+  <% flashcard = @deck.sample_one_card %>
+  <% session[:card_id] = flashcard.id %>
+  <%=flashcard.question %>
+
+  
+  <form action = "/usr/round/:deck_id"  method ="get">
+  	<br>
+  	<input type = "text" name = "user_input">
+ 		<input type = "submit" value = "Submit">
+ 	</form>
 </div>

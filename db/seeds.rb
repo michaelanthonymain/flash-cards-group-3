@@ -21,7 +21,7 @@
 
 
 
-Deck.create({name: "Books", user_id: 1})
+# Deck.create({name: "Books", user_id: 1})
 # Deck.create({name: "Pokemon", user_id: 1})  DONE
 # Card.create({deck_id: 1, question: "What is the yellow pokemon that ash treats like a human being?", answer: "Pikachu"}) DONE
 
