@@ -53,21 +53,48 @@ ul.nav li {
     color: red;
 }
 
-/*p {
-    font-family: Georgia, serif;
-    font-size: 14px;
-    line-height: 24px;
-    margin-bottom: 8px;
+
+/* TABBED STYLING FOR STATS PAGE */
+
+#usrpage {
+    border: none;
 }
-*/
-/*h1, h2, h3 {
+
+.tab {
+    display: none;
+}
+.tabs {
+    float: left;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    margin-bottom: 16px;
+    list-style: none;
+}
+.tabs li {
+    float: left;
+    margin-right: 16px;
+    padding: 10px 15px;
+    height: 30px;
+    line-height: 30px;
+}
+.tabs li a {
+    color: #666;
     font-family: Helvetica, Arial, sans-serif;
-    font-weight: bold;
-}*/
+    text-decoration: none;
+}
 
+.tabs li.active {
+    border: 1px solid #ccc;
+    border-bottom: 1px solid white;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin-bottom: -1px;
+    height: 31px;
+    padding: 9px 14px;
+}
 
-/*h2 {
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 48px;
-}*/
+.tabs li.active a {
+    color: black;
+    text-decoration: none;
+    border-bottom: none;
+}
