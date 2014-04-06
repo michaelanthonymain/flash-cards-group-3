@@ -1,3 +1,26 @@
 <div class="container">
-  <h1>Make a card for deck <%= @deck_name %> </h1>
+  <h1>Make a card for deck <%= @deck.name %> </h1>
+
+  <form method="post" action="/usr/new_deck/<%= @deck.name %>/new_card">
+    Question<br>
+    <input type="text" name="question" size="60"}><br>
+    <br>
+    Answer<br>
+    <input type="text" name="answer">
+
+    <input type="submit" value="create">
+  </form>
+  <br>
+
+  <% unless @cards.empty? %>
+    <h2>Cards:</h2>
+    <% @cards.each do |card| %>
+      <p style="color:blue; display:inline"><%=card.question%></p>
+      <form method="post" action="/usr/new_deck/<%= @deck.name %>/new_card/<%= card.id %>" style="display:inline">
+        <input type="submit" value="delete" style="display:inline">
+      </form>
+      <br>
+    <% end %>
+  <% end %>
+
 </div>
