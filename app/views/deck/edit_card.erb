@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>You are editing a card in deck <%= @deck.name %></h1>
+  <form method="post" action="/usr/decks/<%= @deck.id %>/cards/<%= @card.id %>">
+    Question<br>
+    <input type="text" name="question" value="<%=@card.question%>"size="60"}><br>
+    <br>
+    Answer<br>
+    <input type="text" name="answer" value="<%=@card.answer%>">
+
+    <input type="submit" value="update">
+  </form>
+</div>

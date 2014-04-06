@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Let's Make a Deck!</h1>
 
-<form name="deck-creation-form" action="/usr/new_deck" method="post">
+<form name="deck-creation-form" action="/usr/decks" method="post">
   <fieldset>
     <label for="deck_name" id="deck_name_label">Choose a name for your deck:</label><br>
     <input type="text" name="deck_name" id="deck_name" size="30" value="" class="text-input" /><br>
@@ -12,16 +12,17 @@
   </fieldset>
 </form>
 
-
   <% unless @decks.empty? %>
     <h2>Decks:</h2>
     <% @decks.each do |deck| %>
       <p style="color:blue; display:inline"><%=deck.name%></p>
-      <form method="post" action="/usr/new_deck/<%= deck.id %>" style="display:inline">
+      <form method="post" action="/usr/decks/delete/<%= deck.id %>" style="display:inline">
         <input type="submit" value="delete" style="display:inline">
+      </form>
+      <form method="get" action="/usr/decks/<%= deck.id %>/cards" style="display:inline">
+        <input type="submit" value="update" style="display:inline">
       </form>
       <br>
     <% end %>
   <% end %>
-
 </div>

@@ -1,7 +1,8 @@
 <div class="container">
   <h1>Make a card for deck <%= @deck.name %> </h1>
 
-  <form name="make-card" action="/usr/new_deck/<%=@deck.name %>/new_card" method="post">
+
+  <form name="make-card" action="/usr/decks/<%=@deck.name %>/cards" method="post">
   <fieldset>
     <label for="question" id="question_label">Question:</label><br>
     <input type="text" name="question" id="question" size="60" value="" class="text-input" /><br>
@@ -21,8 +22,11 @@
     <h2>Cards:</h2>
     <% @cards.each do |card| %>
       <p style="color:blue; display:inline"><%=card.question%></p>
-      <form method="post" action="/usr/new_deck/<%= @deck.name %>/new_card/<%= card.id %>" style="display:inline">
+      <form method="post" action="/usr/decks/<%= @deck.id %>/cards/<%= card.id %>" style="display:inline">
         <input type="submit" value="delete" style="display:inline">
+      </form>
+      <form method="get" action="/usr/decks/<%= @deck.id %>/cards/<%=card.id%>" style="display:inline">
+        <input type="submit" value="update" style="display:inline">
       </form>
       <br>
     <% end %>

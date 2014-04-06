@@ -38,7 +38,6 @@ get '/usr/round/:deck_id' do
 
   @flashcard = select_a_random_flashcard(@deck, session[:round_id])
 
-
   if @flashcard == nil  
     @round = Round.find(session[:round_id])
     @guesses_arr = @round.guesses
@@ -52,50 +51,6 @@ get '/usr/round/:deck_id' do
 
 end
 
-
-# DECK CREATION
-
-get '/usr/new_deck' do
-  @user = User.find(session[:user_id])
-  @decks = @user.decks 
-  erb :make_deck
-end
-
-post '/usr/new_deck' do
-  p params
-  @deck_name = params[:deck_name] 
-  @deck = Deck.create!(name: @deck_name, user_id: session[:user_id])
-  p @deck
-  redirect "/usr/new_deck/#{@deck_name}/new_card"
-end
-
-post '/usr/new_deck/:deck_id' do
-  @deck = Deck.find(params[:deck_id])
-  @deck.destroy
-  redirect "/usr/new_deck"
-end
-
-
-# CARD
-
-get '/usr/new_deck/:deck_name/new_card' do
-  @deck = Deck.where(name: params[:deck_name]).first 
-  @cards = @deck.cards 
-  erb :make_card
-end
-
-post '/usr/new_deck/:deck_name/new_card' do 
-  @deck = Deck.where(name: params[:deck_name]).first
-  Card.create!(deck_id: @deck.id, question: params[:question], answer: params[:answer])
-  redirect "/usr/new_deck/#{@deck.name}/new_card"
-end
-
-post '/usr/new_deck/:deck_name/new_card/:card_id' do
-  @deck = Deck.where(name: params[:deck_name]).first
-  @card = Card.find(params[:card_id])
-  @card.destroy
-  redirect "/usr/new_deck/#{@deck.name}/new_card"
-end
 
 
 
