@@ -7,9 +7,9 @@ end
 post '/login' do
   if User.authenticate(params[:name], params[:password])
     session[:user_id] = current_user.id
-    redirect '/usr'
+    "no error"
   else
-    show_error
+    "error"
   end
 end
 

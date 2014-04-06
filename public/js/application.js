@@ -44,12 +44,16 @@ $(document).ready(function() {
   });
 
     $("#login-form").on('submit', function(event) {
+      var formData = $("form#login-form").serialize();
       event.preventDefault();
-        $.post("/login", {name: name, password: password}, function(response) {
+        $.post("/login", formData, function(response) {
             if(response === "error") {
               $("label#login_input_error").show();
               $("input#name").focus();
               return false;
+            }
+            else if(response ==="no error") {
+              location.href = "/usr"
             }
         });
     });
@@ -59,11 +63,3 @@ $(document).ready(function() {
 
 });
 
-
-
-
-
-    //if returned the true value, then create the user and send to the logged in page.
-    // if returned the false value, show an error message.
-
-  // });
