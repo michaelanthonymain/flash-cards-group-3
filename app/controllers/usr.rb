@@ -16,27 +16,41 @@ post '/usr/round' do
   erb :'round/new_round'
 end
 
-
+#ROUND 
 
 get '/usr/round/:deck_id' do
-  puts "THESE ARE PARMAS"
-  p params
+
   @user = User.find(session[:user_id])
   @deck = Deck.find(params[:deck_id])
-  # @round = Round.create(user_id: @user.id, deck_id: @deck.id) ROUND INFO???
+  
+  if params[:submit_new_round] == "play"
+    @round = Round.create(user_id: @user.id, deck_id: @deck.id)
+    session[:round_id] = @round.id
+  end  
+
   user_input = params[:user_input] 
+  
   if user_input != nil 
     this_card = Card.find(session[:card_id])
     correctness = this_card.check_answer(user_input)
-    Guess.create(card_id: session[:card_id], is_correct: correctness, user_input: user_input, round_id: 3) #we have to do something about the rounds
+    Guess.create(card_id: session[:card_id], is_correct: correctness, user_input: user_input, round_id: session[:round_id])
   end
-  @flashcard = select_a_random_flashcard(@deck)
-  session[:card_id] = @flashcard.id 
-  erb :'round/live_round'
+
+  @flashcard = select_a_random_flashcard(@deck, session[:round_id])
+
+
+  if @flashcard == nil  
+    @round = Round.find(session[:round_id])
+    @guesses_arr = @round.guesses
+    @num_correct = @round.get_number_correct
+    @total_num = @deck.cards.count
+    erb :'round/finish_round' 
+  else
+    session[:card_id] = @flashcard.id 
+    erb :'round/live_round'
+  end
+
 end
-
-
-  
 
 
 # DECK CREATION

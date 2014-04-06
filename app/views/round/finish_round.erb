@@ -1,0 +1,18 @@
+<div class="container">
+  <h3> FAIL. Here's why. </h3>
+  <h4>Deck: <%=@deck.name%></h4>
+  <h4><%= "You got #{@num_correct} out of #{@total_num} possible dragons fucking cards" %></h4>
+  <% @guesses_arr.each do |guess| %>
+  	<% if guess.is_correct == true %>
+  		<%= "RIGHT ON!" %>
+  		<%else %>
+  		<%= "SO DUMB."%>
+  	<% end %><br>
+  	Question: <%= guess.card.question %><br>
+  	Correct Answer: <%= guess.card.answer %><br>
+  	Your Answer: <%= guess.user_input %><br><br>
+  <% end %>
+  <form method="get" action="/usr">
+    <input type="submit" value="TAKE YO ASS BACK HOME SON" >
+  </form>
+</div>
