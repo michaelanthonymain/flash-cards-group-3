@@ -2,13 +2,20 @@
 
   <h1>ONE OF US, ONE OF US</h1>
 
-  <form action="/register" method="post">
-    Username: <br>
-    <input type="text" name="name"><br>
-    Password: <br>
-    <input type="password" name="password"><br>
-    <br><input type="submit" value="Register">
-  </form>
+  <form id="registration-form" name="registration-form" action="/register" method="post">
+  <fieldset>
+    <label for="name" id="name_label">Username:</label><br>
+    <input type="text" name="name" id="name" size="30" value="" class="text-input" /><br>
+    <label class="error" for="name" id="name_error">You ain't got no name?</label><br><br>
+
+    <label for="password" id="password_label">Password:</label><br>
+    <input type="password" name="password" id="password" size="30" value="" class="text-input" /><br>
+    <label class="error" for="password" id="password_error">If you don't make a password, we will STEAL YOUR SHIT.</label><br>
+      <br />
+    <input type="submit" name="submit" class="button" id="submit_btn" value="Register" />
+    <label class="error" for="submit" id="registration_input_error">YOU DUN GOOFED.</label>
+  </fieldset>
+</form>
 
   <p>I changed my mind, <a href='/'>take me home.</a></p>
 
