@@ -43,20 +43,23 @@ $(document).ready(function() {
     });
   });
 
+    $("#login-form").on('submit', function(event) {
+      var formData = $("form#login-form").serialize();
+      event.preventDefault();
+        $.post("/login", formData, function(response) {
+            if(response === "error") {
+              $("label#login_input_error").show();
+              $("input#name").focus();
+              return false;
+            }
+            else if(response ==="no error") {
+              location.href = "/usr"
+            }
+        });
+    });
+
+
+
 
 });
 
-
-
-  // $("#login-form").on('submit', function(event) {
-  //   event.preventDefault();
-  //   console.log("This is working.")
-  //   // $.post({ url: "/login",
-  //   //   data: {value: diceRoll},
-  //   //   success: function(response) {
-  //   //     var dieImage = "<img src='/" + response + ".png'/>";
-  //   //     $("#die").html(dieImage);
-  //   //   }
-  //   // });
-
-  // });
