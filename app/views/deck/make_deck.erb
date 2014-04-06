@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Let's Make a Deck!</h1>
-  <form class="form-deck-title" method="post" action="/usr/new_deck">
+  <form class="form-deck-title" method="post" action="/usr/decks">
     Choose a name for your deck:
     <input type="text" name="deck_name">
     <input type="submit" value="submit">
@@ -10,11 +10,13 @@
     <h2>Decks:</h2>
     <% @decks.each do |deck| %>
       <p style="color:blue; display:inline"><%=deck.name%></p>
-      <form method="post" action="/usr/new_deck/<%= deck.id %>" style="display:inline">
+      <form method="post" action="/usr/decks/delete/<%= deck.id %>" style="display:inline">
         <input type="submit" value="delete" style="display:inline">
+      </form>
+      <form method="get" action="/usr/decks/<%= deck.id %>/cards" style="display:inline">
+        <input type="submit" value="update" style="display:inline">
       </form>
       <br>
     <% end %>
   <% end %>
-
 </div>
