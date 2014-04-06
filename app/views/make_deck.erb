@@ -1,10 +1,17 @@
 <div class="container">
   <h1>Let's Make a Deck!</h1>
-  <form class="form-deck-title" method="post" action="/usr/new_deck">
-    Choose a name for your deck:
-    <input type="text" name="deck_name">
-    <input type="submit" value="submit">
-  </form>
+
+<form name="deck-creation-form" action="/usr/new_deck" method="post">
+  <fieldset>
+    <label for="deck_name" id="deck_name_label">Choose a name for your deck:</label><br>
+    <input type="text" name="deck_name" id="deck_name" size="30" value="" class="text-input" /><br>
+    <label class="error" for="deck_name" id="deck_name_error">Don't be ridiculous, decks need names!</label><br><br>
+
+      <br />
+    <input type="submit" name="submit" class="button" id="submit_btn" value="TAKE ME THERE." />
+  </fieldset>
+</form>
+
 
   <% unless @decks.empty? %>
     <h2>Decks:</h2>
