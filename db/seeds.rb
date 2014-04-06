@@ -20,10 +20,11 @@
 #if we want to just try to run the cards what informatoin do we need? - we need a way to look at the information in a particular deck - we need a way to look at the information in a particular card (we can ignore rounds for now)
 
 
+# User.create(name: "Rohan", password: "Mathur")
+# # Deck.create({name: "Books", user_id: 1})
+# Deck.create({name: "Pokemon", user_id: 1})  
 
-# Deck.create({name: "Books", user_id: 1})
-# Deck.create({name: "Pokemon", user_id: 1})  DONE
-# Card.create({deck_id: 1, question: "What is the yellow pokemon that ash treats like a human being?", answer: "Pikachu"}) DONE
+# Card.create({deck_id: 1, question: "What is the yellow pokemon that ash treats like a human being?", answer: "Pikachu"}) 
 
 # Card.create({deck_id: 1, question: "What is the fiery one fully evolved?", answer: "Charzard"})
 

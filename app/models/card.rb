@@ -2,11 +2,12 @@ class Card < ActiveRecord::Base
 	belongs_to :deck
 	has_many :guesses
 
-	def is_answer_correct?(guess_object)
-		if guess_object.user_input.downcase == self.answer
-			guess_object.is_correct = true
+	def check_answer(user_input)
+		if user_input.downcase == self.answer.downcase
+			return true
 		else
-			guess_object.is_correct = false
-		end 
+			return false
+		end
 	end
+
 end
