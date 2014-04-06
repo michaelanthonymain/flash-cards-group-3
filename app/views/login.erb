@@ -1,7 +1,7 @@
 <div class="container">
   <h1>GET READY TO FUCK SOME CARDS, DRAGON!!!!</h1>
 
-<form name="login-form" action="/login" method="post">
+<form id="login-form" name="login-form" action="/login" method="post">
   <fieldset>
     <label for="name" id="name_label">Username:</label><br>
     <input type="text" name="name" id="name" size="30" value="" class="text-input" /><br>
@@ -10,9 +10,9 @@
     <label for="password" id="password_label">Password:</label><br>
     <input type="password" name="password" id="password" size="30" value="" class="text-input" /><br>
     <label class="error" for="password" id="password_error">This field is required.</label><br>
-
       <br />
     <input type="submit" name="submit" class="button" id="submit_btn" value="Login" />
+    <label class="error" for="submit" id="login_input_error">Invalid username or password.</label>
   </fieldset>
 </form>
 

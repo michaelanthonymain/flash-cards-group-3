@@ -12,11 +12,11 @@ def initialize_deck_instance(deck_id)
 	return Deck.find(deck_id)
 end
 
+
 def select_a_random_flashcard(deck, round_id)
 	if (Guess.where(round_id: round_id)).count == (deck.cards).count
 		return nil
 	end
-
 	bool = false
 	while bool == false do
 		card = deck.sample_from_deck
@@ -29,7 +29,5 @@ def select_a_random_flashcard(deck, round_id)
 	end
 	return card
 end
-
-
 
 
