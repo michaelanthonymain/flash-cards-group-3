@@ -1,16 +1,7 @@
 <div class="container">
   <h2>Hello <%=@user.name %>, glad to have you back!</h2>
 
-  <form method='post' action='/usr/round'>
-    <select name='deck'\>
-      <% @user.decks.each do |deck| %>
-      <option value="<%=deck.id%>"><%=deck.name%></option>
-      <% end %>
-    </select>
-    <input type="submit" value="new round">
-  </form>
+  <a href='usr/play'>PLAY</a>
+  <a href='usr/newdeck'>CREATE</a>
 
-  <form method='get' action='/usr/new_deck'>
-    <input type="submit" value="new deck">
-  </form>
 </div>
