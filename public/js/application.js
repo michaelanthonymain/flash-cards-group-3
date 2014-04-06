@@ -43,20 +43,27 @@ $(document).ready(function() {
     });
   });
 
+    $("#login-form").on('submit', function(event) {
+      event.preventDefault();
+        $.post("/login", {name: name, password: password}, function(response) {
+            if(response === "error") {
+              $("label#login_input_error").show();
+              $("input#name").focus();
+              return false;
+            }
+        });
+    });
+
+
+
 
 });
 
 
 
-  // $("#login-form").on('submit', function(event) {
-  //   event.preventDefault();
-  //   console.log("This is working.")
-  //   // $.post({ url: "/login",
-  //   //   data: {value: diceRoll},
-  //   //   success: function(response) {
-  //   //     var dieImage = "<img src='/" + response + ".png'/>";
-  //   //     $("#die").html(dieImage);
-  //   //   }
-  //   // });
+
+
+    //if returned the true value, then create the user and send to the logged in page.
+    // if returned the false value, show an error message.
 
   // });

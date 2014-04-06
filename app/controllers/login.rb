@@ -9,7 +9,7 @@ post '/login' do
     session[:user_id] = current_user.id
     redirect '/usr'
   else
-    erb :login
+    show_error
   end
 end
 
@@ -21,7 +21,7 @@ post '/register' do
   @new_user = User.new(name: params[:name], password: params[:password])
   if @new_user.save
     session[:user_id] = current_user.id
-    redirect '/usr' 
+    redirect '/usr'
   else
     erb :register
   end
