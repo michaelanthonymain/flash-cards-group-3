@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Let's Play a Game</h1>
+  <form method='post' action='/usr/round'>
+    <select name='deck_id'\>
+      <% @user.decks.each do |deck| %>
+      <option value="<%=deck.id%>"><%=deck.name%></option>
+      <% end %>
+    </select>
+    <input type="submit" value="play">
+  </form>
+</div>
