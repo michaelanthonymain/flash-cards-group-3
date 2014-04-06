@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+// Form validation logic for login, register, and deck creation
   $(function() {
     $('.error').hide();
     $(".button").click(function() {
@@ -43,6 +44,8 @@ $(document).ready(function() {
     });
   });
 
+
+    // Authentication AJAX for Login and Registration pages
     $("#login-form").on('submit', function(event) {
       var formData = $("form#login-form").serialize();
       event.preventDefault();
@@ -74,7 +77,16 @@ $(document).ready(function() {
     });
 
 
+     // Tabbed interface functionality for stats page
+    $( "#tab1").show();
 
+      $(".tabs li").on("click", function(event) {
+        $(".tabs li").removeClass("active");
+        $(".tab").hide();
+        $(this).addClass("active");
+        var activeTab = $(this).children("a").attr("href");
+        $(activeTab).show();
+      });
 
 });
 
