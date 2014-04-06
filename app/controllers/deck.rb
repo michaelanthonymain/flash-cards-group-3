@@ -12,7 +12,7 @@ post '/usr/decks' do
   redirect "/usr/decks/#{@deck.id}/cards"
 end
 
-post '/usr/decks/:deck_id' do
+post '/usr/decks/delete/:deck_id' do
   @deck = Deck.find(params[:deck_id])
   @deck.destroy
   redirect "/usr/decks"
