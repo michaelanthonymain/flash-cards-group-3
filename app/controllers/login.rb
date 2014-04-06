@@ -21,9 +21,9 @@ post '/register' do
   @new_user = User.new(name: params[:name], password: params[:password])
   if @new_user.save
     session[:user_id] = current_user.id
-    redirect '/usr'
+    "no error"
   else
-    erb :register
+    "error"
   end
 end
 

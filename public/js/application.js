@@ -58,6 +58,21 @@ $(document).ready(function() {
         });
     });
 
+     $("#registration-form").on('submit', function(event) {
+      var formData = $("form#registration-form").serialize();
+      event.preventDefault();
+        $.post("/register", formData, function(response) {
+            if(response === "error") {
+              $("label#registration_input_error").show();
+              $("input#name").focus();
+              return false;
+            }
+            else if(response ==="no error") {
+              location.href = "/usr"
+            }
+        });
+    });
+
 
 
 
