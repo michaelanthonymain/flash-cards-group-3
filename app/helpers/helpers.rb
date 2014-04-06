@@ -13,7 +13,7 @@ def initialize_deck_instance(deck_id)
 end
 
 def select_a_random_flashcard(deck)
-	if (Guess.where(round_id: 4)).count == (deck.cards).count
+	if (Guess.where(round_id: 3)).count == (deck.cards).count
 		raise "THIS IS THE END OF THE ROUND THANKS FOR PLAYING"
 	end
 
@@ -21,7 +21,7 @@ def select_a_random_flashcard(deck)
 	while bool == false do
 		card = deck.sample_from_deck
 		bool = true
-		(Guess.where(round_id: 4)).each do |guess|
+		(Guess.where(round_id: 3)).each do |guess|
 			if guess.card_id == card.id
 				bool = false
 			end

@@ -2,7 +2,7 @@
   <h3> new round bro </h3>
   <h4>Deck: <%=@deck.name%></h4>
   <form method="get" action="/usr/round/<%=@deck.id%>">
-    <input type="submit" value="play">
+    <input type="submit" value="play" name = "submit_new_round">
   </form>
   <form method="get" action="/usr/play">
     <input type="submit" value="back">
