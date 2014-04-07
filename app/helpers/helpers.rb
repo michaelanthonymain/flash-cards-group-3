@@ -30,4 +30,26 @@ def select_a_random_flashcard(deck, round_id)
 	return card
 end
 
+def total_guesses(user)
+  @all_guesses = []
+  @all_rounds = user.rounds
+  @all_rounds.each do |round|
+    round.guesses.each do |guess|
+      @all_guesses << guess
+    end
+  end
+  @all_guesses
+end
+
+def correct_guesses(guesses)
+  @correct_guess = 0
+  @all_guesses.each do |guess|
+    if guess.is_correct == true
+      @correct_guess += 1
+    end
+  end
+  @percent_correct = (@correct_guess.to_f / @all_guesses.length.to_f) * 100
+end
+
+
 
