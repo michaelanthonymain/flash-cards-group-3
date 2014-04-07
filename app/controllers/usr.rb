@@ -9,12 +9,15 @@ end
 
 #STATISTICS
 post '/usr/stats/round' do
-  # @user = User.find(session[:user_id])
-  # @total_guesses = total_guesses(@user)
-  # correct_guesses(@total_guesses)
   @round_to_check = Round.find(params[:round_id])
   correct_guesses_by_round(@round_to_check)
-  @percent_correct_for_round.to_s
+  @percent_correct_for_round.round(2).to_s
+end
+
+post '/usr/stats/deck' do
+  @deck_to_check = Deck.find(params[:deck_id])
+  correct_guesses_by_deck(@deck_to_check)
+  @percent_correct_for_deck.round(2).to_s
 end
 
 get '/usr/play' do
