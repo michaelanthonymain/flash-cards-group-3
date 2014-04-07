@@ -13,14 +13,22 @@
 
     <div class="tab" id="tab1">
         <h2>How Wrong You've Been, Overall</h2>
-        <!-- Overall % correct -->
-        <!-- Total number of guesses -->
+        <p> Total guesses: <%=@all_guesses.length %>
+        <p> Percent correct: <%=@percent_correct.round(2)%> % </p>
         <p>Yea, it's pretty bad.</p>
     </div>
 
     <div class="tab" id="tab2">
         <h2>How Wrong You've Been, by Round</h2>
         <!-- Select the round that you want -->
+        <form method='post' action='/usr/round'>
+          <select name='round_id'\>
+            <% @user.rounds.each do |round| %>
+                <option value="<%=round.id%>"><%=round.id%></option>
+              <% end %>
+          </select>
+          <input type="submit" value="View">
+        </form>
         <!-- % correct guesses in that round -->
         <!-- number of guesses in that round -->
         <p>Yikes. Get your shit together.</p>
@@ -29,6 +37,16 @@
     <div class="tab" id="tab3">
         <h2>How Wrong You've Been, by Deck</h2>
         <!-- Select the deck that you want -->
+        <form method='post' action='/usr/round'>
+          <select name='deck_id'\>
+            <% @user.decks.each do |deck| %>
+              <% unless deck.cards.empty? %>
+                <option value="<%=deck.id%>"><%=deck.name%></option>
+              <% end %>
+            <% end %>
+          </select>
+          <input type="submit" value="View">
+        </form>
         <!-- % correct guesses for that deck -->
         <!-- number of guesses for that deck -->
         <p>Shouldn't your scores be higher? You literally wrote the answers yourself.</p>
