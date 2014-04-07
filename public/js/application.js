@@ -88,5 +88,14 @@ $(document).ready(function() {
         $(activeTab).show();
       });
 
+      //AJAX for statistics
+      $("#stats-by-round").on('submit', function(event) {
+        var formData = $("form#stats-by-round").serialize();
+        event.preventDefault();
+          $.post("/usr/stats/round", formData, function(response) {
+                  $("#score-for-round").html("<p> You managed to get " + response + "% correct that round. <br> Yikes. Get your shit together.</p>")
+          });
+      });
+
 });
 

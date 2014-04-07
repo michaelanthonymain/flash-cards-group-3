@@ -20,18 +20,16 @@
 
     <div class="tab" id="tab2">
         <h2>How Wrong You've Been, by Round</h2>
-        <!-- Select the round that you want -->
-        <form method='post' action='/usr/round'>
+        <form id="stats-by-round" method='get' action='/usr'>
           <select name='round_id'\>
-            <% @user.rounds.each do |round| %>
-                <option value="<%=round.id%>"><%=round.id%></option>
+            <% @user.rounds.each_with_index do |round, n| %>
+                <option value="<%=round.id%>"><%=n + 1%></option>
               <% end %>
           </select>
           <input type="submit" value="View">
         </form>
-        <!-- % correct guesses in that round -->
-        <!-- number of guesses in that round -->
-        <p>Yikes. Get your shit together.</p>
+        <div id="score-for-round">
+        </div>
     </div>
 
     <div class="tab" id="tab3">

@@ -7,6 +7,16 @@ get '/usr' do
   erb :'usr/usrpage'
 end
 
+#STATISTICS
+post '/usr/stats/round' do
+  # @user = User.find(session[:user_id])
+  # @total_guesses = total_guesses(@user)
+  # correct_guesses(@total_guesses)
+  @round_to_check = Round.find(params[:round_id])
+  correct_guesses_by_round(@round_to_check)
+  @percent_correct_for_round.to_s
+end
+
 get '/usr/play' do
   @user = User.find(session[:user_id])
   erb :play
@@ -52,8 +62,6 @@ get '/usr/round/:deck_id' do
   end
 
 end
-
-#STATISTICS
 
 
 
