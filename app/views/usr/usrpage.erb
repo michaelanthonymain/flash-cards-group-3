@@ -1,5 +1,9 @@
 <div class="container">
+  <% if @user.rounds.empty? %>
+  <h2> Hey, <%=@user.name %>, you ready to see some weird stuff?</h2>
+  <% else %>
   <h2>Hello <%=@user.name %>, glad to have you back!</h2>
+  <% end %>
 </div>
 
 <div class="container" id="usrpage">
