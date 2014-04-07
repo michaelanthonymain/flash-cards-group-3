@@ -51,5 +51,14 @@ def correct_guesses(guesses)
   @percent_correct = (@correct_guess.to_f / @all_guesses.length.to_f) * 100
 end
 
+def correct_guesses_by_round(round)
+  @correct_guess_for_round = 0
+  round.guesses.each do |guess|
+    if guess.is_correct == true
+      @correct_guess_for_round += 1
+    end
+  end
+  @percent_correct_for_round = (@correct_guess_for_round.to_f / round.guesses.length.to_f) * 100
+end
 
 
