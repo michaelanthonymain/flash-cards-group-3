@@ -93,7 +93,15 @@ $(document).ready(function() {
         var formData = $("form#stats-by-round").serialize();
         event.preventDefault();
           $.post("/usr/stats/round", formData, function(response) {
-                  $("#score-for-round").html("<p> You managed to get " + response + "% correct that round. <br> Yikes. Get your shit together.</p>")
+                  $("#score-for-round").html("<p> You managed to get " + response + "% correct that round. <br><br> Yikes. Get your shit together.</p>")
+          });
+      });
+
+      $("#stats-by-deck").on('submit', function(event) {
+        var formData = $("form#stats-by-deck").serialize();
+        event.preventDefault();
+          $.post("/usr/stats/deck", formData, function(response) {
+                  $("#score-for-deck").html("<p> You've managed to get " + response + "%  of your guesses correct for that deck. <br><br> Shouldn't your scores be higher? You literally wrote the answers yourself.</p>")
           });
       });
 

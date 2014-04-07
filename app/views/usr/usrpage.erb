@@ -13,14 +13,14 @@
 
     <div class="tab" id="tab1">
         <h2>How Wrong You've Been, Overall</h2>
-        <p> Total guesses: <%=@all_guesses.length %>
-        <p> Percent correct: <%=@percent_correct.round(2)%> % </p>
-        <p>Yea, it's pretty bad.</p>
+        <p> You've taken <%=@all_guesses.length %> guesses overall so far.</p>
+        <p> But you only managed to get <%=@percent_correct.round(2)%>% of them correct.</p>
+        <p>Yea, that's pretty bad.</p>
     </div>
 
     <div class="tab" id="tab2">
         <h2>How Wrong You've Been, by Round</h2>
-        <form id="stats-by-round" method='get' action='/usr'>
+        <form id="stats-by-round" method='post' action='/usr/stats/round'>
           <select name='round_id'\>
             <% @user.rounds.each_with_index do |round, n| %>
                 <option value="<%=round.id%>"><%=n + 1%></option>
@@ -34,8 +34,7 @@
 
     <div class="tab" id="tab3">
         <h2>How Wrong You've Been, by Deck</h2>
-        <!-- Select the deck that you want -->
-        <form method='post' action='/usr/round'>
+        <form id="stats-by-deck" method='post' action='/usr/stats/deck'>
           <select name='deck_id'\>
             <% @user.decks.each do |deck| %>
               <% unless deck.cards.empty? %>
@@ -45,8 +44,8 @@
           </select>
           <input type="submit" value="View">
         </form>
-        <!-- % correct guesses for that deck -->
-        <!-- number of guesses for that deck -->
-        <p>Shouldn't your scores be higher? You literally wrote the answers yourself.</p>
+        <div id="score-for-deck">
+      </div>
     </div>
+
 </div>
